@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="ancor" prefHeight="415.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
+   <children>
+      <ListView fx:id="picker" editable="true" fixedCellSize="0.0" maxWidth="150.0" prefHeight="387.0" prefWidth="130.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <ImageView fx:id="image" fitHeight="316.0" fitWidth="358.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Button defaultButton="true" mnemonicParsing="false" onAction="#test" text="Testen" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="114.0" />
+      <Button mnemonicParsing="false" onAction="#refresh" text="Aktualisiern" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <TextField fx:id="path" prefHeight="27.0" prefWidth="345.0" promptText="Pfad" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="14.0" />
+      <TextField fx:id="duration" promptText="Dauer" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="205.0" />
+      <ListView fx:id="configurator" editable="true" fixedCellSize="0.0" layoutX="164.0" layoutY="14.0" maxWidth="150.0" prefHeight="387.0" prefWidth="170.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="158.0" AnchorPane.topAnchor="14.0" />
+   </children>
+</AnchorPane>

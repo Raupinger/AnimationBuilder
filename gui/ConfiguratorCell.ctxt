@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ConfiguratorCell
+comment1.params=
+comment1.target=ConfiguratorCell()
+comment2.params=h\ img\ n\ d
+comment2.target=ConfiguratorCell(java.util.HashMap,\ javafx.scene.image.Image,\ java.lang.String,\ int)
+numComments=3

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=FrameRemoveHandler
+comment1.params=c
+comment1.target=FrameRemoveHandler(gui.Controller)
+comment2.params=e
+comment2.target=void\ handle(javafx.event.ActionEvent)
+numComments=3

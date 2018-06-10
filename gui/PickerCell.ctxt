@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=PickerCell
+comment1.params=
+comment1.target=PickerCell()
+comment2.params=img\ n
+comment2.target=PickerCell(javafx.scene.image.Image,\ java.lang.String)
+numComments=3

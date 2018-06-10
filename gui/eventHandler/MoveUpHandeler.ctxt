@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MoveUpHandeler
+comment1.params=c
+comment1.target=MoveUpHandeler(gui.Controller)
+comment2.params=e
+comment2.target=void\ handle(javafx.event.ActionEvent)
+numComments=3

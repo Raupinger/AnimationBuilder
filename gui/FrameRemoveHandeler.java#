@@ -1,0 +1,15 @@
+package gui;
+
+import gui.Controller;
+import javafx.event.*;
+import javafx.scene.Node;
+public class FrameRemoveHandeler implements EventHandler<ActionEvent>{
+    private Controller controller;
+    public FrameRemoveHandeler(Controller c){
+        controller = c;
+    }
+    public void handle(ActionEvent e){
+        Node source = (Node) e.getSource();
+        controller.removeFromSelected( (CustomCell) source.getParent());
+    };
+}
