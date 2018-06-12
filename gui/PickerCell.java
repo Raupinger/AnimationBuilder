@@ -22,6 +22,7 @@ public class PickerCell extends CustomCell{
         name.maxWidth(186);
         name.prefWidth(186);
         name.setWrapText(true);
+        /*
         this.setTopAnchor(image, name.getHeight() + 8.0);
         //this.setBottomAnchor(image, 2.0);
         this.setLeftAnchor(image, 2.0);
@@ -29,7 +30,7 @@ public class PickerCell extends CustomCell{
         this.setLeftAnchor(name, 2.0);
         this.setBottomAnchor(button, 2.0);
         this.setLeftAnchor(button, 65.0);
-        
+        */
         this.getChildren().addAll(image, name, button); 
     }
 }

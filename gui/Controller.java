@@ -11,12 +11,13 @@ import javafx.util.Callback;
 import javafx.scene.image.*;
 import gui.ConfiguratorCell;
 import gui.eventHandler.*;
+import store.Frame;
 public class Controller {
     @FXML private TextField path;
     @FXML public ListView picker;
-    @FXML public ListView configurator;
+    @FXML public ListView<Frame> configurator;
     ObservableList<CustomCell> available;
-    ObservableList<CustomCell> selected;
+    ObservableList<Frame> selected;
     private HashMap<String, EventHandler> handlerSelected;
     private gui.eventHandler.FrameRemoveHandler remover;
     public Controller() {
@@ -34,15 +35,30 @@ public class Controller {
         System.out.println("inizialisiert");
         System.out.println(picker.getCellFactory());
 
-        configurator = new ListView();
         selected = FXCollections.observableArrayList(
-            new ConfiguratorCell(handlerSelected, new Image("images/shiggy Master.png"), "Extra langer Dateiname, um zu testen, wie es reagiert, wenn der Dateiname sehr lang ist", 105), new ConfiguratorCell(handlerSelected, new Image("images/shiggy halb.png"), "File 2", 100));
+            new Frame("shiggy Master.png", 100), new Frame("shiggy halb.png", 200));
+
+        configurator = new ListView<Frame>(selected);
+        Callback cb = new Callback<ListView<Frame>, ListCell<Frame>>()  {
+                @Override public ListCell<Frame> call(ListView<Frame> list) {
+                    System.out.println("Cell Factory");
+                    return new ConfiguratorCell(handlerSelected, "images/");
+                }
+            };
+
+        configurator.setCellFactory(cb );
+
 
         configurator.setPlaceholder(new Label(":-("));
         configurator.refresh();
         System.out.println(configurator);
 
     }
+    
+                 private ListCell<Frame> call(ListView<Frame> list) {
+                    System.out.println("Cell Factory");
+                    return new ConfiguratorCell(handlerSelected, "images/");
+                }
 
     @FXML public void test(ActionEvent event) {
         System.out.print("pfad: ");
@@ -52,16 +68,16 @@ public class Controller {
         picker.setItems(available);
     }
 
-    public void removeFromSelected(CustomCell cell) {
-        selected.removeAll(cell);
+    public void removeFromSelected(Frame f) {
+        selected.removeAll(f);
     }
 
-    public void moveSelected(CustomCell cell, int amount) {
+    public void moveSelected(Frame f, int amount) {
         if(amount < 0 || amount >= selected.size()){return;}
         //amount = 0;
-        amount = selected.indexOf(cell) + amount;
-        CustomCell previus = selected.get(amount);
-        selected.add(amount, cell);
+        amount = selected.indexOf(f) + amount;
+        Frame previus = selected.get(amount);
+        selected.add(amount, f);
         selected.set(amount + 1, previus);
         configurator.setItems(selected);
     }
@@ -69,9 +85,18 @@ public class Controller {
     @FXML public void refresh() {
 
         selected = FXCollections.observableArrayList(
-            new ConfiguratorCell(handlerSelected, new Image("images/shiggy Master.png"), "Extra langer Dateiname, um zu testen, wie es reagiert, wenn der Dateiname sehr lang ist", 105), new ConfiguratorCell(handlerSelected, new Image("images/shiggy halb.png"), "File 2", 100));
+            new Frame("shiggy Master.png", 100), new Frame("shiggy halb.png", 200));
+        
 
         configurator.setItems(selected);
+        configurator.setCellFactory(new Callback<ListView<Frame>, ListCell<Frame>>() {
+        @Override public ListCell<Frame> call(ListView<Frame> list) {
+        System.out.println("Factory");
+            return new ConfiguratorCell(handlerSelected, "images/");
+        }
+        });
+         
+        //configurator.refresh();
         System.out.println("wie neu!");
     }
 }
